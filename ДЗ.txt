@@ -1,0 +1,38 @@
+
+UPDATE users SET
+	firstname = 'Petrov',
+    lastname = 'Ivan'
+WHERE id = 1;
+
+SELECT * FROM vk.users;
+____________________________________
+
+DELETE FROM vk.profiles where users_id = 17;
+
+
+SELECT * FROM vk.profiles where users_id = 17;
+
+___________________________________
+
+INSERT users SET
+	irstname = 'f8',
+    lastname = 'l8',
+    email = '8@mail.ru',
+    phone = 79010000888,
+    password_hash = SHA1('8@mail.ru');
+    
+SELECT * FROM vk.users;
+______________________________________________
+
+
+SET SQL_MODE='ALLOW_INVALID_DATES';
+UPDATE vk.friend_request SET updated_at = NULL WHERE updated_at = '0000-00-00 00:00:00';
+
+SELECT * FROM vk.friend_request;
+
+_____________________________________________________
+
+Подобрать сервис-образец для курсовой работы
+
+Решила создать базу для интернет-магазина косметики, наброски сайта у меня есть, надеюсь на курсе будет рассказано каким образом базу прикрепить к сайту, чтобы сайт и база были рабочими.
+
