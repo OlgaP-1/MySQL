@@ -1,0 +1,9 @@
+/* Пусть задан некоторый пользователь. 
+Из всех друзей этого пользователя найдите человека, который больше всех общался с нашим пользователем.*/ 
+SELECT 
+    IF(from_users_id = 60, to_users_id, from_users_id) AS friend_mess, 
+    COUNT(*)    
+FROM VK_class.messages
+WHERE from_users_id = 60 OR to_users_id = 60
+GROUP BY friend_mess
+ORDER BY COUNT(*) DESC LIMIT 1;
