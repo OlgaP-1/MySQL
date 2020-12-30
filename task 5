@@ -1,0 +1,7 @@
+/* 5.	Найти 10 пользователей, которые проявляют наименьшую активность в использовании социальной сети.*/
+SELECT profiles.users_id, 
+(SELECT COUNT(users_id) FROM VK_class.media WHERE users_id = profiles.users_id GROUP BY users_id) as media,
+(SELECT COUNT(*) FROM VK_class.messages WHERE from_users_id = profiles.users_id OR to_users_id = profiles.users_id) AS messages,
+(SELECT count(communities_id) FROM VK_class.posts WHERE users_id = profiles.users_id GROUP BY users_id) AS posts
+FROM VK_class.profiles
+order by messages, posts, media LIMIT 10;

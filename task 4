@@ -1,0 +1,19 @@
+/*Определить кто больше поставил лайков (всего) - мужчины или женщины?*/
+SELECT 
+    gender, SUM(likes)
+FROM
+    (SELECT 
+        profiles.users_id,
+            profiles.gender,
+            (SELECT 
+                    COUNT(likes.users_id)
+                FROM
+                    VK_class.likes
+                WHERE
+                    likes.users_id = profiles.users_id) AS likes
+    FROM
+        VK_class.profiles) t
+GROUP BY gender
+ORDER BY gender;
+
+/*Женщины поставили больше лайков*/
